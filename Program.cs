@@ -24,6 +24,24 @@ namespace DebugSnippets
     {
         static void Main(string[] args)
         {
+            string UserInput;
+            string[] ParsedInput;
+            int[] UserArray = { };
+            Console.WriteLine("Enter your array separated by coma: ");
+            UserInput =  Console.ReadLine();
+
+            ParsedInput = UserInput.Split(',');
+            
+            foreach(string element in ParsedInput)
+            {
+                UserArray = InsertIntoArray(UserArray, Convert.ToInt32(element));
+            }
+
+
+            Combinations(UserArray);
+
+            Console.Read();
+
         }
 
 
@@ -33,28 +51,53 @@ namespace DebugSnippets
         2- Create an array with the size of N*CombinationArraySize where you will store all possible combinations of numbers picked
         3- Create 
 
+
+        array = [a, b, c, d, e, f]
+
+        combinations (no repeat):
+        [a, b]
+        [a, c]
+        [a, d]
+        [a, e]
+        [a, f]
+        [b, c]
+        [b, d]
+        [b, e]
+        [b, f]
+        [c, d]
+        [c, e]
+        [c, f]
+        [d, e]
+        [d, f]
+        [e, f]
+
+
          */
 
 
-        public int[][] Combinations(int[] Elements)
+        public static void Combinations(int[] Elements)
         {
             int SizeOfArray = Elements.Length;
-            int[SizeOfArray][2] AllPossibleCombinations;
+            //int[][] AllPossibleCombinations;
 
             int ElementCount = 0;
             while (ElementCount < Elements.Length)
             {
                 foreach (int PivotNumber in Elements)
                 {
-                    foreach (int)
+                    Elements = RemoveNumFromArray(Elements, 0);
+                    foreach (int element in Elements)
+                    {
+                        Console.WriteLine("[" + PivotNumber + "," + element + "]");
+                    }
 
                 }
-                Elements = RemoveNumFromArray(Elements, 0);
+
                 ElementCount++;
             }
             
 
-            return Combined;
+            return ;
         }
 
         public int GetMaxScore(int Rounds, int[] InputArray)
@@ -81,6 +124,13 @@ namespace DebugSnippets
             var foos = new List<int>(InputArray);
             foos.RemoveAt(index);
             return foos.ToArray();
+        }
+
+        public static int[] InsertIntoArray(int[] InputArray, int Element)
+        {
+            var TempList = new List<int>(InputArray);
+            TempList.Add(Element);
+            return TempList.ToArray();
         }
 
     }
