@@ -27,6 +27,35 @@ namespace DebugSnippets
         }
 
 
+        /*
+        
+        1- Create an array with all possible number combinations
+        2- Create an array with the size of N*CombinationArraySize where you will store all possible combinations of numbers picked
+        3- Create 
+
+         */
+
+
+        public int[][] Combinations(int[] Elements)
+        {
+            int SizeOfArray = Elements.Length;
+            int[SizeOfArray][2] AllPossibleCombinations;
+
+            int ElementCount = 0;
+            while (ElementCount < Elements.Length)
+            {
+                foreach (int PivotNumber in Elements)
+                {
+                    foreach (int)
+
+                }
+                Elements = RemoveNumFromArray(Elements, 0);
+                ElementCount++;
+            }
+            
+
+            return Combined;
+        }
 
         public int GetMaxScore(int Rounds, int[] InputArray)
         {
@@ -45,6 +74,13 @@ namespace DebugSnippets
                 Console.WriteLine("Error: This Array is missmatched!");
                 return -1;
             }
+        }
+
+        public static int[] RemoveNumFromArray(int[] InputArray, int index)
+        {
+            var foos = new List<int>(InputArray);
+            foos.RemoveAt(index);
+            return foos.ToArray();
         }
 
     }
